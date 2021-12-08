@@ -6,6 +6,7 @@ export const Wrapper = styled.button`
   border: none;
   height: 36px;
   padding: 20px;
+  cursor: pointer;
   
   display: flex;
   justify-content: center;
@@ -15,4 +16,10 @@ export const Wrapper = styled.button`
   font-size: 16px;
   line-height: 20px;
   color: #B22E6F;
+
+  transition: all 400ms;
+
+  :hover {
+    opacity: 0.9;
+  }
 `
