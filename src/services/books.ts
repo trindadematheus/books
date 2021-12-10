@@ -1,8 +1,8 @@
 import api from "./api";
 
 type GetBooksProps = {
-  page: string;
-  amount: string;
+  page: number;
+  amount: number;
   category: string;
 }
 

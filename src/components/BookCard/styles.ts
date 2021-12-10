@@ -17,10 +17,16 @@ export const Wrapper = styled.div`
 
   .book-image-area {
     width: 113px;
+    padding: 16px;
 
     display: flex;
     justify-content: center;
     align-items: center;
+
+    img {
+      height: 100%;
+      filter: drop-shadow(0px 6px 9px rgba(0, 0, 0, 0.15));
+    }
   }
 
   .book-info {

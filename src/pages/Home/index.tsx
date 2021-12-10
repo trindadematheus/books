@@ -1,11 +1,35 @@
+import { useEffect, useState } from 'react';
+
 import BookCard from '../../components/BookCard';
 import Logo from '../../components/Logo';
 import RoundedButton from '../../components/RoundedButton';
 import { useAuth } from '../../hooks/use-auth';
+import { getBooks } from '../../services/books';
 import * as S from './styles'
 
 function Home() {
+  const [books, setBooks] = useState([])
+
   const { user, logOut } = useAuth()
+
+  useEffect(() => {
+    handleGetBooks()
+  }, [])
+
+  async function handleGetBooks() {
+    try {
+      const { data } = await getBooks({
+        amount: 12,
+        page: 1,
+        category: 'biographies'
+      });
+
+      console.log(data)
+      setBooks(data.data)
+    } catch (error) {
+      console.log({ error })
+    }
+  }
 
   return (
     <>
@@ -24,20 +48,7 @@ function Home() {
         </S.Header>
 
         <S.BooksListing>
-          <BookCard />
-          <BookCard />
-          <BookCard />
-          <BookCard />
-
-          <BookCard />
-          <BookCard />
-          <BookCard />
-          <BookCard />
-
-          <BookCard />
-          <BookCard />
-          <BookCard />
-          <BookCard />
+          {books.map((book, key) => <BookCard key={key} book={book} />)}
         </S.BooksListing>
 
         <S.Pagination>
