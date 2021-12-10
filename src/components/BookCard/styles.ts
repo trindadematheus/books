@@ -5,8 +5,15 @@ export const Wrapper = styled.div`
   height: 160px;
   border-radius: 4px;
   box-shadow: 0px 6px 24px rgba(84, 16, 95, 0.13);
+  cursor: pointer;
 
   display: flex;
+
+  transition: all 400ms;
+
+  :hover {
+    transform: translateY(-5px);
+  }
 
   .book-image-area {
     width: 113px;

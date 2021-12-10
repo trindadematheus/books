@@ -1,9 +1,12 @@
 import BookCard from '../../components/BookCard';
 import Logo from '../../components/Logo';
 import RoundedButton from '../../components/RoundedButton';
+import { useAuth } from '../../hooks/use-auth';
 import * as S from './styles'
 
 function Home() {
+  const { user, logOut } = useAuth()
+
   return (
     <>
       <S.Wrapper>
@@ -11,8 +14,12 @@ function Home() {
           <Logo color="#333" />
 
           <div className="user-data">
-            <span>Bem vindo, <b>Guilherme</b></span>
-            <RoundedButton icon="logout" />
+            <span>Bem vindo, <b>{user?.name}</b></span>
+
+            <RoundedButton
+              icon="logout"
+              onClick={logOut}
+            />
           </div>
         </S.Header>
 

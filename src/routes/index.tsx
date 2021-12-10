@@ -1,10 +1,13 @@
+import { useAuth } from "../hooks/use-auth";
 import PrivateRoutes from "./private";
 import PublicRoutes from "./public";
 
 function Routes() {
+  const { user } = useAuth()
+
   return (
     <>
-      {true ? <PrivateRoutes /> : <PublicRoutes />}
+      {user ? <PrivateRoutes /> : <PublicRoutes />}
     </>
   );
 }

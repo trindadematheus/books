@@ -2,17 +2,17 @@ import { ButtonHTMLAttributes } from 'react';
 
 import * as S from './styles'
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   loading?: boolean;
   label: string;
 }
 
 function Button(props: ButtonProps) {
-  const { label } = props;
+  const { label, loading } = props;
 
   return (
     <S.Wrapper className="button" {...props}>
-      {label}
+      {loading ? 'O' : label}
     </S.Wrapper>
   )
 }
