@@ -1,12 +1,12 @@
 import { Route, Routes } from "react-router-dom";
 
-import Login from "../pages/Login";
+import Home from "../pages/Home";
 
 function PrivateRoutes() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </>
   );
