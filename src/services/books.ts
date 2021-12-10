@@ -1,3 +1,4 @@
+import makeUrlParams from "../utils/url-params";
 import api from "./api";
 
 type GetBooksProps = {
@@ -7,7 +8,7 @@ type GetBooksProps = {
 }
 
 export async function getBooks(data: GetBooksProps) {
-  return await api.get(`/books?${new URLSearchParams(data).toString()}`);
+  return await api.get(`/books${makeUrlParams(data)}`);
 }
 
 export async function getBookFromId(bookId: string) {
