@@ -12,3 +12,18 @@ export default interface Book {
   published: number;
   id: string;
 }
+
+export interface BookFromId {
+  authors: string[];
+  category: string;
+  description: string;
+  id: string;
+  imageUrl: string;
+  isbn10: string;
+  isbn13: string;
+  language: string;
+  pageCount: string;
+  published: string;
+  publisher: string;
+  title: string;
+}

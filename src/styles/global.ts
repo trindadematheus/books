@@ -54,4 +54,38 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'Heebo', sans-serif !important;
     box-sizing: border-box;
   }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(2px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Modal {
+    background: #FFFFFF;
+    box-shadow: 0px 16px 80px rgba(0, 0, 0, 0.32);
+    border-radius: 4px;
+    padding: 48px;
+    position: absolute;
+    /* height: calc(100% - 160px);
+    width: calc(100% - 600px); */
+  }
+
+  @media (max-width: 768px) {
+    .Modal {
+      margin: 16px;
+      margin-top: 64px;
+      padding: 24px;
+      height: calc(100vh - 64px - 16px);
+      overflow: auto;
+    }
+  }
 `

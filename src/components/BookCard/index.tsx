@@ -1,5 +1,8 @@
 import { useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import Book from '../../types/book';
+import makeUrlParams from '../../utils/url-params';
 import * as S from './styles'
 
 type BookCardProps = {
@@ -7,6 +10,7 @@ type BookCardProps = {
 }
 
 function BookCard({ book }: BookCardProps) {
+  const navigate = useNavigate()
 
   const authors = useMemo(() => {
     return book.authors.reduce((acc, item) => {
@@ -20,9 +24,18 @@ function BookCard({ book }: BookCardProps) {
     }, '')
   }, [book]);
 
+  function handleSelectBook() {
+    const params: any = Object.fromEntries(new URLSearchParams(location.search));
+
+    params.bookId = book.id
+
+    navigate(`/${makeUrlParams(params, true)}`);
+
+  }
+
   return (
     <>
-      <S.Wrapper>
+      <S.Wrapper onClick={handleSelectBook} >
         <div className="book-image-area">
           <img src={book.imageUrl} alt="" />
         </div>
