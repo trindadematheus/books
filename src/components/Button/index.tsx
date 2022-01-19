@@ -1,5 +1,6 @@
 import { ButtonHTMLAttributes } from 'react';
 
+import Loading from '../Loading';
 import * as S from './styles'
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -12,7 +13,7 @@ function Button(props: ButtonProps) {
 
   return (
     <S.Wrapper className="button" {...props}>
-      {loading ? 'O' : label}
+      {loading ? <Loading /> : label}
     </S.Wrapper>
   )
 }
