@@ -10,7 +10,6 @@ function App() {
       <AuthProvider>
         <Routes />
       </AuthProvider>
-
       <GlobalStyle />
     </Router>
   )

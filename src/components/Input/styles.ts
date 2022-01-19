@@ -33,3 +33,28 @@ export const Wrapper = styled.div`
     top: 12px;
   }
 `
+
+export const ErrorWrapper = styled.div`
+  position: absolute;
+  top: 60px;
+  z-index: 1;
+
+  .triangle {
+    margin-bottom: -3px;
+    margin-left: 16px;
+  }
+
+  .container {
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 4px;
+    padding: 16px;
+    height: 48px;
+  }
+
+  .label {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 16px;
+    color: #FFFFFF;
+  }
+`

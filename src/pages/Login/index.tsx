@@ -17,8 +17,9 @@ const schema = yup.object().shape({
 function Login() {
   const [loading, setLoading] = useState(false)
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { register, handleSubmit, setError, formState: { errors } } = useForm({
     resolver: yupResolver(schema),
+    shouldFocusError: false
   });
 
   const { saveUser } = useAuth()
@@ -35,7 +36,10 @@ function Login() {
 
       saveUser(data, headers.authorization)
     } catch (error) {
-      console.log(error)
+      console.log({ error })
+      setError('password', {
+        message: 'Email e/ou senha incorretos.'
+      })
     } finally {
       setLoading(false)
     }
@@ -50,6 +54,7 @@ function Login() {
             <Input
               label="Email"
               register={register('email')}
+              error={errors['email']}
             />
             <Input
               label="Senha"
@@ -60,6 +65,7 @@ function Login() {
                 loading: loading
               }}
               register={register('password')}
+              error={errors['password']}
             />
           </form>
         </div>
